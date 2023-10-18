@@ -11,13 +11,13 @@
 const { loadData, parseData, updateView, updatePresident } = require('./public/javascripts/presidents.js');
 const puppeteer = require('puppeteer');
 const app = require("./app");
-const request = require("supertest");
+// const request = require("supertest");
 
 let browser;
 let page;
 
 // Declaring constants 
-const PAGE_URL = 'http://127.0.0.1:3000';  
+const PAGE_URL = 'http://127.0.0.1:3000/presidents';  
 
 const TEST_DATA = [
     {
@@ -63,9 +63,15 @@ describe('Parse data', () => {
     });
 });
 
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
+  
+
 // Test to update view
 describe('Update view', () => {
     beforeAll(async () => {
+        // await delay(1000);
         await page.evaluate(data => updateView(data), TEST_DATA);
     });
 
