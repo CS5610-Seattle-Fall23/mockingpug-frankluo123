@@ -1,0 +1,17 @@
+extends layout2.pug
+
+block content
+
+  h1 Guess the US President
+  p
+    | Who is the 
+    span#president
+    | th President?
+  img#photo(src='images/image.png' alt='placeholder before actual photo')
+  input#input(type='text' placeholder='Enter full name')
+  button(onclick='updatePresident()') Submit
+  #result
+  //- //- script(src='script.js')
+
+block scripts 
+  script(src='/javascripts/presidents.js')

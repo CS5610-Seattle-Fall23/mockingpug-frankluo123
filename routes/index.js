@@ -6,6 +6,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+router.get('/presidents', function(req, res, next) {
+  res.render('presidents', { title: 'Express' });
+});
+
 /**
 * Sets up a route handler for POST requests
 */ 
@@ -24,17 +29,23 @@ router.post('/submitFoodPreferences', (req, res, next) => {
   }
 
 
-// Debugging purposes
-console.log(req.body.iceCreamFlavor);
-console.log(req.body.pizzaToppings);
-console.log(req.body.favoriteFruit);
-console.log(req.body.cuisine);
-console.log(req.body.spiciness);
+  // Debugging purposes
+  console.log(req.body.iceCreamFlavor);
+  console.log(req.body.pizzaToppings);
+  console.log(req.body.favoriteFruit);
+  console.log(req.body.cuisine);
+  console.log(req.body.spiciness);
 
-// For cookie and a thank you message for the POST request
-// res.cookie('bestcookie', 'samoas', { maxAge: 900000, httpOnly: false});
-res.cookie('favoriteFruit', req.body.favoriteFruit, { maxAge: 900000, httpOnly: false });
-res.send("Thanks for sharing your food preferences! :) Your favorite fruit is: " + req.body.favoriteFruit);
+  // For cookie and a thank you message for the POST request
+  res.cookie('favoriteFruit', req.body.favoriteFruit, { maxAge: 900000, httpOnly: false });
+  // res.send("Thanks for sharing your food preferences! :) Your favorite fruit is: " + req.body.favoriteFruit);
+  res.render('results', {favoriteFruit: req.body.favoriteFruit});
 });
+
+// router.post('/myaction', function(req, res, next) {
+//   console.log(req.body.color);
+//   console.log(req.body.mynumber);
+//   res.render('results', { title: 'Personality Quiz Results', personality: "You like pizza" });
+// });
 
 module.exports = router;
