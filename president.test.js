@@ -18,7 +18,7 @@ let page;
 
 // Declaring constants 
 const PAGE_URL = 'http://127.0.0.1:3000/presidents';  
-
+const timeout = 15000;
 const TEST_DATA = [
     {
         name: 'George Washington',
@@ -71,7 +71,7 @@ function delay(time) {
 // Test to update view
 describe('Update view', () => {
     beforeAll(async () => {
-        // await delay(1000);
+        await delay(1000);
         await page.evaluate(data => updateView(data), TEST_DATA);
     });
 
@@ -127,3 +127,21 @@ describe('Update President', () => {
     });
 });
 
+describe('Test page title and header', () => {
+    test('page title', async () => {
+        const title = await page.title();
+        expect(title).toMatch('Pick Your Own API');
+    }, timeout);
+});
+
+describe('Type and Press Button', () => {
+    test('Form Input', async () => {
+        await page.type('input[id="input"]', "Alexander Hamilton");
+    }, timeout);
+
+    test('Click Button and Get Results', async () => {
+        await page.click("button", { text: "Submit" });
+        const resultText = await page.$eval('#result', div => div.innerText);
+        expect(resultText).toContain("Incorrect.");
+    }, timeout);
+});
