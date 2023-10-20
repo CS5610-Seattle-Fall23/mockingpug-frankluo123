@@ -1,4 +1,16 @@
 extends layout2.pug
+//- Frank Luo
+//- 
+    User is able to guess a U.S. President while presented with a randomly generated photo of a U.S. President. 
+    Program will let the user know if they are correct or not. Pug works with JavaScript. 
+//- 
+    Sources Used:
+    https://www.w3schools.com/tags/att_input_type_text.asp
+    https://www.w3schools.com/tags/tag_button.asp
+    https://pugjs.org/api/getting-started.html 
+    https://www.sitepoint.com/a-beginners-guide-to-pug/
+    https://html-to-pug.com
+
 
 block content
 
@@ -11,7 +23,6 @@ block content
   input#input(type='text' placeholder='Enter full name')
   button(onclick='updatePresident()') Submit
   #result
-  //- //- script(src='script.js')
 
 block scripts 
   script(src='/javascripts/presidents.js')

@@ -11,7 +11,6 @@
 const { loadData, parseData, updateView, updatePresident } = require('./public/javascripts/presidents.js');
 const puppeteer = require('puppeteer');
 const app = require("./app");
-// const request = require("supertest");
 
 let browser;
 let page;
@@ -63,6 +62,7 @@ describe('Parse data', () => {
     });
 });
 
+// Delaying time a little for tests to run 
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
   }
@@ -82,21 +82,21 @@ describe('Update view', () => {
 
     it('displays the president photo', async () => {
         const photoSrc = await page.$eval('#photo', img => img.src);
-        expect(photoSrc).toContain('.jpg');  // or any other assertion depending on your mock data
+        expect(photoSrc).toContain('.jpg');  
     });
 
     it('updates the result correctly on correct input', async () => {
-        await page.type('#input', 'George Washington');  // replace with the correct name from your mock data
+        await page.type('#input', 'George Washington');  
         await page.click('button');
         const resultText = await page.$eval('#result', div => div.innerText);
         expect(resultText).toBe('Correct! Great Job!');
     });
 
     it('updates the result correctly on incorrect input', async () => {
-        await page.type('#input', 'Andrew Jackson');  // replace with an incorrect name
+        await page.type('#input', 'Andrew Jackson');  
         await page.click('button');
         const resultText = await page.$eval('#result', div => div.innerText);
-        expect(resultText).toBe('Incorrect. The President was George Washington.');  // replace with the correct name from your mock data
+        expect(resultText).toBe('Incorrect. The President was George Washington.');  
     });
 });
 
@@ -127,6 +127,7 @@ describe('Update President', () => {
     });
 });
 
+// Test for page title and header 
 describe('Test page title and header', () => {
     test('page title', async () => {
         const title = await page.title();
@@ -134,6 +135,7 @@ describe('Test page title and header', () => {
     }, timeout);
 });
 
+// Mocking Tests for Typing and Pressing Button. Also Getting the Results
 describe('Type and Press Button', () => {
     test('Form Input', async () => {
         await page.type('input[id="input"]', "Alexander Hamilton");
