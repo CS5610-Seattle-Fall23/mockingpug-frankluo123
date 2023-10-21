@@ -82,14 +82,45 @@ Be sure that you have:
 Add screenshots below showing,
 
 * Your app running on Google Cloud
+![Working Validation](Working_1.png)
+![Working Validation](Working_2.png)
+![Working Validation](Working_3.png)
+![Working Validation](Working_4.png)
 * Your html validation
+![Validator](simpleform_validate.png)
+![Validator](president_validate.png)
 * Your code coverage
+![Tests](tests_passing.png)
+![Tests Coverage](tests_coverage.png)
 * Your color contrast test
+![Color](simpleform_a11y.png)
+![Color](president_a11y.png)
 
 Update the README to answer the following questions:
 
 1. What are your thoughts on Pug? How did it compare with writing HTML in the prior assignments? Give an example from this assignment to demostrate your reasoning.
+
+    Pug was not too bad to use once I figured out how it worked. Initially, there was some confusion regarding the blocks and the extension features of pug. For example, I had to let my index.pug extend from layout.pug to import the correct picture icon and CSS format. There were also less resources for pug online compared to HTML, which was a bit unfortunate. 
+
 2. What was your experience like adding mocks to your api tests?
+
+    Adding mock tests to the API tests were not bad once I had examples on how to do it. The example provided in class regarding Herpetology was extremely helpful. 
+
 3. Give three reasons why we care about mocking data dependencies.
+
+    Mocking data dependencies is a fundamental aspect of software design and unit testing. With it we can carry out isolation of componenets for testing, increase speed and efficiency for testing, as well as have greater control over testing scenarios. All of these features will allow our programs to become more robuts and fool proof. 
+
+
 4. Add a link to your app running on Google Cloud here:
+
+    The following is for the Simple Form: 
+
+    https://simple-form-402221.wl.r.appspot.com 
+
+    The following is for Guess the President: 
+
+    https://simple-form-402221.wl.r.appspot.com/presidents 
+
 5. What did you think about deploying this app to Google Cloud?
+
+    Deploying the app to Google Cloud was not too bad because they had step by step instructions online. 
